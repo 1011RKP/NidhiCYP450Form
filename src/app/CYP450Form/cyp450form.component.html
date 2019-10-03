@@ -1,0 +1,650 @@
+<form class="form-horizontal" role="form" #form="ngForm">
+  <div class="form-group row">
+    <div class="alert alert-success col-sm-6 tab-pane" *ngIf='message'>
+      <strong>Success!</strong> {{message}}
+    </div>
+    <div class="alert alert-danger col-sm-6 tab-pane" *ngIf='error'>
+      <strong>Danger!</strong> {{error}}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label textBold">Assay</label>
+    <label class="col-sm-1 col-form-label textBold">Enzyme</label>
+    <label class="col-sm-2 col-form-label textBold">Input</label>
+    <label class="col-sm-2 col-form-label textBold">Value</label>
+    <label class="col-sm-3 col-form-label textBold">Input2</label>
+    <label class="col-sm-2 col-form-label textBold">Value2</label>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">1A2</label>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI1A2Input' name="RI1A2Input">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI1A2Value' name="RI1A2Value" #ri1a2value="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri1a2value.touched && !ri1a2value.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control " [(ngModel)]='RI1A2Input2' name="RI1A2Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value="Highest Conc. Tested (uM)">Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI1A2Value2' name="RI1A2Value2" #ri1a2value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri1a2value2.touched && !ri1a2value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2B6</label>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2B6Input' name="RI2B6Input">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2B6Value' name="RI2B6Value" #ri2b6value="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2b6value.touched && !ri2b6value.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control " [(ngModel)]='RI2B6Input2' name="RI2B6Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Highest Conc. Tested (uM)'>Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2B6Value2' name="RI2B6Value2" #ri2b6value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2b6value2.touched && !ri2b6value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2C8</label>
+    <div class="col-sm-2 divpaddinglftrit ">
+      <select class="form-control" [(ngModel)]='RI2C8Input' name="RI2C8Input">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2C8Value' name="RI2C8Value" #ri2c8value="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2c8value.touched && !ri2c8value.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2C8Input2' name="RI2C8Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Highest Conc. Tested (uM)'>Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2C8Value2' name="RI2C8Value2" #ri2c8value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2c8value2.touched && !ri2c8value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2C9</label>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2C9Input' name="RI2C9Input">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2C9Value' name="RI2C9Value" #ri2c9value="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2c9value.touched && !ri2c9value.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2C9Input2' name="RI2C9Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Highest Conc. Tested (uM)'>Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2C9Value2' name="RI2C9Value2" #ri2c9value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2c9value2.touched && !ri2c9value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2C19</label>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2C19Input' name="RI2C19Input">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2C19Value' name="RI2C19Value" #ri2c19value="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2c19value.touched && !ri2c19value.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2C19Input2' name="RI2C19Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value="Highest Conc. Tested (uM)">Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2C19Value2' name="RI2C19Value2" #ri2c19value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2c19value2.touched && !ri2c19value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2D6</label>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2D6Input' name="RI2D6Input">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2D6Value' name="RI2D6Value" #ri2d6value="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2d6value.touched && !ri2d6value.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI2D6Input2' name="RI2D6Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Highest Conc. Tested (uM)'>Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI2D6Value2' name="RI2D6Value2" #ri2d6value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri2d6value2.touched && !ri2d6value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">3A4(mid)</label>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI3A4MidInput' name="RI3A4MidInput">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI3A4MidValue' name="RI3A4MidValue" #ri3a4midvalue="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri3a4midvalue.touched && !ri3a4midvalue.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI3A4MidInput2' name="RI3A4MidInput2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Highest Conc. Tested (uM)'>Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI3A4MidValue2' name="RI3A4MidValue2"
+        #ri3a4midvalue2="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri3a4midvalue2.touched && !ri3a4midvalue2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Reversible Inhibitition</label>
+    <label class="col-sm-1 col-form-label">3A4(tst)</label>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI3A4TstInput' name="RI3A4TstInput">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='IC50 (uM)'>IC50 (uM)</option>
+        <option value='Ki'>Ki</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI3A4TstValue' name="RI3A4TstValue" #ri3a4tstvalue="ngModel"
+        pattern="[>]?[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri3a4tstvalue.touched && !ri3a4tstvalue.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='RI3A4TstInput2' name="RI3A4TstInput2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Highest Conc. Tested (uM)'>Highest Conc. Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='RI3A4TstValue2' name="RI3A4TstValue2"
+        #ri3a4tstvalue2="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="ri3a4tstvalue2.touched && !ri3a4tstvalue2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-offset-2 col-sm-1 col-form-label textBold">Comment</label>
+    <div class="col-sm-4 divpaddinglftrit">
+      <textarea rows="3" class="form-control" type="text" [(ngModel)]='RIComment' name="RIComment"></textarea>
+      <span>Note : Add EWB and report number here.</span>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <label class="col-form-label textBold">URL</label>
+    </div>
+    <div class="col-sm-4 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='FirstURL' name="FirstURL" />
+    </div>
+  </div>
+  <div class="form-group row">&nbsp;</div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label textBold">Assay</label>
+    <label class="col-sm-1 col-form-label textBold">Enzyme</label>
+    <label class="col-sm-2 col-form-label textBold">Indication for TDI</label>
+    <label class="col-sm-1 col-form-label textBold">Kinact</label>
+    <label class="col-sm-1 col-form-label textBold">KI</label>
+    <label class="col-sm-1 col-form-label textBold">Kdeg</label>
+    <label class="col-sm-2 col-form-label textBold">Input2</label>
+    <label class="col-sm-2 col-form-label textBold">Value2</label>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Time-Dependent Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2C9</label>
+    <div class="col-sm-2">
+      <!-- <input type="checkbox" class="form-check-input" [(ngModel)]='TDI2C9CKS' name="TDI2C9CKS"
+        (change)="TDI2C9Kinact = ''; TDI2C9KI = null; TDI2C9Kdeg= null;"> -->
+      <select class="form-control" [(ngModel)]='TDI2C9CKS' name="TDI2C9CKS"
+        (change)="TDI2C9Kinact = ''; TDI2C9KI = null; TDI2C9Kdeg= null;">
+        <option value='None'>None</option>
+        <option value='Low'>Low</option>
+        <option value='Positive'>Positive</option>
+      </select>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <!-- <input class="form-control" type="text" [(ngModel)]='TDI2C9Kinact' name="TDI2C9Kinact"
+        [disabled]='TDI2C9CKS == true' #tdi2c9kinact="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*"> -->
+      <input class="form-control" type="text" [(ngModel)]='TDI2C9Kinact' name="TDI2C9Kinact"
+        [disabled]="TDI2C9CKS == 'None'" #tdi2c9kinact="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <!-- <input class="form-control" type="text" [(ngModel)]='TDI2C9KI' name="TDI2C9KI" [disabled]='TDI2C9CKS == true'
+        #tdi2c9ki="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*"> -->
+      <input class="form-control" type="text" [(ngModel)]='TDI2C9KI' name="TDI2C9KI" [disabled]="TDI2C9CKS == 'None'"
+        #tdi2c9ki="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <!-- <input class="form-control" type="text" [(ngModel)]='TDI2C9Kdeg' name="TDI2C9Kdeg" [disabled]='TDI2C9CKS == true'
+        #tdi2c9kdeg="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*"> -->
+      <input class="form-control" type="text" [(ngModel)]='TDI2C9Kdeg' name="TDI2C9Kdeg"
+        [disabled]="TDI2C9CKS == 'None'" #tdi2c9kdeg="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='TDI2C9Input2' name="TDI2C9Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Conc Tested (uM)'>Conc Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2C9Value2' name="TDI2C9Value2" #tdi2c9value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="(tdi2c9value2.touched && !tdi2c9value2.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-5 col-sm-3 divpaddinglftrit" *ngIf="TDI2C9CKS !== 'None'">
+      <div *ngIf="(tdi2c9kinact.touched && !tdi2c9kinact.valid) ||
+                        (tdi2c9ki.touched && !tdi2c9ki.valid) ||
+                        (tdi2c9kdeg.touched && !tdi2c9kdeg.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Time-Dependent Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2C19</label>
+    <div class="col-sm-2">
+      <!-- <input type="checkbox" class="form-check-input" [(ngModel)]='TDI2C19CKS' name="TDI2C19CKS"
+        (change)="TDI2C19Kinact = null; TDI2C19KI = null; TDI2C19Kdeg= null;"> -->
+      <select class="form-control" [(ngModel)]='TDI2C19CKS' name="TDI2C19CKS"
+        (change)="TDI2C19Kinact = null; TDI2C19KI = null; TDI2C19Kdeg= null;">
+        <option value='None'>None</option>
+        <option value='Low'>Low</option>
+        <option value='Positive'>Positive</option>
+      </select>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2C19Kinact' name="TDI2C19Kinact"
+        [disabled]="TDI2C19CKS == 'None'" #tdi2c19kinact="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2C19KI' name="TDI2C19KI" [disabled]="TDI2C19CKS == 'None'"
+        #tdi2c19ki="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2C19Kdeg' name="TDI2C19Kdeg"
+        [disabled]="TDI2C19CKS == 'None'" #tdi2c19kdeg="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='TDI2C19Input2' name="TDI2C19Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Conc Tested (uM)'>Conc Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2C19Value2' name="TDI2C19Value2" #tdi2c19value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="tdi2c19value2.touched && !tdi2c19value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-5 col-sm-3 divpaddinglftrit" *ngIf="TDI2C19CKS !== 'None'">
+      <div *ngIf="(tdi2c19kinact.touched && !tdi2c19kinact.valid) ||
+                        (tdi2c19ki.touched && !tdi2c19ki.valid) ||
+                        (tdi2c19kdeg.touched && !tdi2c19kdeg.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Time-Dependent Inhibitition</label>
+    <label class="col-sm-1 col-form-label">2D6</label>
+    <div class="col-sm-2">
+      <!-- <input type="checkbox" class="form-check-input" [(ngModel)]='TDI2D6CKS' name="TDI2D6CKS"
+        (change)="TDI2D6Kinact = null; TDI2D6KI = null; TDI2D6Kdeg= null;"> -->
+      <select class="form-control" [(ngModel)]='TDI2D6CKS' name="TDI2D6CKS"
+        (change)="TDI2D6Kinact = null; TDI2D6KI = null; TDI2D6Kdeg= null;">
+        <option value='None'>None</option>
+        <option value='Low'>Low</option>
+        <option value='Positive'>Positive</option>
+      </select>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2D6Kinact' name="TDI2D6Kinact"
+        [disabled]="TDI2D6CKS == 'None'" #tdi2d6kinact="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2D6KI' name="TDI2D6KI" [disabled]="TDI2D6CKS == 'None'"
+        #tdi2d6ki="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2D6Kdeg' name="TDI2D6Kdeg"
+        [disabled]="TDI2D6CKS == 'None'" #tdi2d6kdeg="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='TDI2D6Input2' name="TDI2D6Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Conc Tested (uM)'>Conc Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI2D6Value2' name="TDI2D6Value2" #tdi2d6value2="ngModel"
+        pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="tdi2d6value2.touched && !tdi2d6value2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-5 col-sm-3 divpaddinglftrit" *ngIf="TDI2D6CKS !== 'None'">
+      <div *ngIf="(tdi2d6kinact.touched && !tdi2d6kinact.valid) ||
+                        (tdi2d6ki.touched && !tdi2d6ki.valid) ||
+                        (tdi2d6kdeg.touched && !tdi2d6kdeg.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Time-Dependent Inhibitition</label>
+    <label class="col-sm-1 col-form-label">3A4(mid)</label>
+    <div class="col-sm-2">
+      <!-- <input type="checkbox" class="form-check-input" [(ngModel)]='TDI3A4MidCKS' name="TDI3A4MidCKS"
+        (change)="TDI3A4MidKinact = null; TDI3A4MidKI = null; TDI3A4MidKdeg= null;"> -->
+      <select class="form-control" [(ngModel)]='TDI3A4MidCKS' name="TDI3A4MidCKS"
+        (change)="TDI3A4MidKinact = null; TDI3A4MidKI = null; TDI3A4MidKdeg= null;">
+        <option value='None'>None</option>
+        <option value='Low'>Low</option>
+        <option value='Positive'>Positive</option>
+      </select>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI3A4MidKinact' name="TDI3A4MidKinact"
+        [disabled]="TDI3A4MidCKS == 'None'" #tdi3a4midkinact="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI3A4MidKI' name="TDI3A4MidKI"
+        [disabled]="TDI3A4MidCKS == 'None'" #tdi3a4midki="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI3A4MidKdeg' name="TDI3A4MidKdeg"
+        [disabled]="TDI3A4MidCKS == 'None'" #tdi3a4midkdeg="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='TDI3A4MidInput2' name="TDI3A4MidInput2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Conc Tested (uM)'>Conc Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='TDI3A4MidValue2' name="TDI3A4MidValue2"
+        #tdi3a4midvalue2="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+      <div *ngIf="tdi3a4midvalue2.touched && !tdi3a4midvalue2.valid" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-5 col-sm-3 divpaddinglftrit" *ngIf="TDI3A4MidCKS !== 'None'">
+      <div *ngIf="(tdi3a4midkinact.touched && !tdi3a4midkinact.valid) ||
+                        (tdi3a4midki.touched && !tdi3a4midki.valid) ||
+                        (tdi3a4midkdeg.touched && !tdi3a4midkdeg.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-offset-2 col-sm-1 col-form-label textBold">TDIComment</label>
+    <div class="col-sm-4 commentAlign">
+      <textarea rows="3" class="form-control" type="text" [(ngModel)]='TDIComment' name="TDIComment"></textarea>
+      <span>Note : Add EWB and report number here.</span>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <label class="col-form-label textBold">URL</label>
+    </div>
+    <div class="col-sm-4 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='SecoundURL' name="SecoundURL" />
+    </div>
+  </div>
+  <div class="form-group row">&nbsp;</div>
+  <div class="form-group row alert alert-success paddingOffAlert">
+    <div class="col-sm-offset-4 col-sm-3">
+      <label class="col-form-label textBold"> <strong>Induction Tested?</strong> </label>
+      <input type="checkbox" class="form-check-input" [(ngModel)]='Inductiontested' name="Inductiontested">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label textBold">Assay</label>
+    <label class="col-sm-1 col-form-label textBold">Enzyme</label>
+    <label class="col-sm-2 col-form-label textBold">Indication for Induction</label>
+    <label class="col-sm-1 col-form-label textBold">Emax</label>
+    <label class="col-sm-1 col-form-label textBold">EC50</label>
+    <label class="col-sm-3 col-form-label textBold">Input2</label>
+    <label class="col-sm-2 col-form-label textBold">Value2</label>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Induction</label>
+    <label class="col-sm-1 col-form-label">1A2</label>
+    <div class="col-sm-2">
+      <!-- <input type="checkbox" class="form-check-input" [(ngModel)]='Induction1A2CFI' name="Induction1A2CFI"
+        (change)="Induction1A2EC50 = null; Induction1A2Emax = null;"> -->
+      <select class="form-control" [(ngModel)]='Induction1A2CFI' name="Induction1A2CFI"
+        (change)="Induction1A2EC50 = null; Induction1A2Emax = null;">
+        <option value='No'>No</option>
+        <option value='Yes'>Yes</option>
+      </select>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction1A2Emax' name="Induction1A2Emax"
+        [disabled]="Induction1A2CFI == 'No'" #induction1a2emax="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction1A2EC50' name="Induction1A2EC50"
+        [disabled]="Induction1A2CFI == 'No'" #induction1a2ec50="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='Induction1A2Input2' name="Induction1A2Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Conc Tested (uM)'>Conc Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction1A2Value2' name="Induction1A2Value2">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-5 col-sm-2 divpaddinglftrit" *ngIf="Induction1A2CFI !== 'No'">
+      <div *ngIf="(induction1a2ec50.touched && !induction1a2ec50.valid) ||
+                        (induction1a2emax.touched && !induction1a2emax.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Induction</label>
+    <label class="col-sm-1 col-form-label">2B6</label>
+    <div class="col-sm-2">
+      <!-- <input type="checkbox" class="form-check-input" [(ngModel)]='Induction2B6CFI' name="Induction2B6CFI"
+        (change)="Induction2B6EC50 = null; Induction2B6Emax = null;"> -->
+      <select class="form-control" [(ngModel)]='Induction2B6CFI' name="Induction2B6CFI"
+        (change)="Induction2B6EC50 = null; Induction2B6Emax = null;">
+        <option value='No'>No</option>
+        <option value='Yes'>Yes</option>
+      </select>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction2B6Emax' name="Induction2B6Emax"
+        [disabled]="Induction2B6CFI == 'No'" #induction2b6emax="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction2B6EC50' name="Induction2B6EC50"
+        [disabled]="Induction2B6CFI == 'No'" #induction2b6ec50="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='Induction2B6Input2' name="Induction2B6Input2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Conc Tested (uM)'>Conc Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction2B6Value2' name="Induction2B6Value2">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-5 col-sm-2 divpaddinglftrit" *ngIf="Induction2B6CFI !== 'No'">
+      <div *ngIf="(induction2b6ec50.touched && !induction2b6ec50.valid) ||
+                        (induction2b6emax.touched && !induction2b6emax.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Induction</label>
+    <label class="col-sm-1 col-form-label">3A</label>
+    <div class="col-sm-2">
+      <!-- <input type="checkbox" class="form-check-input" [(ngModel)]='Induction3ACFI' name="Induction3ACFI"
+        (change)="Induction3AEC50 = null; Induction3AEmax = null;"> -->
+      <select class="form-control" [(ngModel)]='Induction3ACFI' name="Induction3ACFI"
+        (change)="Induction3AEC50 = null; Induction3AEmax = null;">
+        <option value='No'>No</option>
+        <option value='Yes'>Yes</option>
+      </select>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction3AEmax' name="Induction3AEmax"
+        [disabled]="Induction3ACFI == 'No'" #induction3aemax="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction3AEC50' name="Induction3AEC50"
+        [disabled]="Induction3ACFI == 'No'" #induction3aec50="ngModel" pattern="[-+]?[0-9]*\.?[0-9]*">
+    </div>
+    <div class="col-sm-3 divpaddinglftrit">
+      <select class="form-control" [(ngModel)]='Induction3AInput2' name="Induction3AInput2">
+        <!-- <option value="">-- Select Input --</option> -->
+        <option value='Conc Tested (uM)'>Conc Tested (uM)</option>
+      </select>
+    </div>
+    <div class="col-sm-2 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='Induction3AValue2' name="Induction3AValue2">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-5 col-sm-2 divpaddinglftrit" *ngIf="Induction3ACFI !== 'No'">
+      <div *ngIf="(induction3aec50.touched && !induction3aec50.valid) ||
+                        (induction3aemax.touched && !induction3aemax.valid)" class="alert alert-danger alertBox">
+        Only accept numbers
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-offset-2 col-sm-1 col-form-label textBold">Comment</label>
+    <div class="col-sm-4 commentAlign">
+      <textarea rows="3" class="form-control" type="text" [(ngModel)]='Note' name="Note"></textarea>
+      <span>Note : Add EWB and report number here.</span>
+    </div>
+    <div class="col-sm-1 divpaddinglftrit">
+      <label class="col-form-label textBold">URL</label>
+    </div>
+    <div class="col-sm-4 divpaddinglftrit">
+      <input class="form-control" type="text" [(ngModel)]='ThirdURL' name="ThirdURL" />
+    </div>
+  </div>
+  <div class="form-group row">&nbsp;</div>
+  <div class="form-group row divpadding">
+    <div class="col-sm-offset-6 col-sm-6 divpaddinglftrit">
+      <button type="submit" class="btn btn-primary" (click)='saveClick()' [disabled]="!form.valid">Save Record</button>
+    </div>
+  </div>
+</form>

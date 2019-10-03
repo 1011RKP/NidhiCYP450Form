@@ -1,0 +1,43 @@
+<div class="mainPadding">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h5 class="mb-0 panel-title">DMPK/CP</h5>
+    </div>
+    <div class="panel-body">
+      <div class="modal-body row">
+        <div class="col-md-12">
+          <app-selectcompound (OnprogramselectionChangedEvent)='OnSelectionChange($event)'></app-selectcompound>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="panel-title">CYP450 Data Input: Incyte drug as perpetrator</h6>
+                </div>
+                <div class="col-sm-4" *ngIf="isAdminTrue !== false">
+                  <a data-toggle="modal" *ngIf="Nodata !== true" data-target="#deleteRecord"
+                    (click)='setseletedItem(CYP450Data)' class="delLink">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body" *ngIf='Compound == null'>
+              Please select a Program and a compound.
+              <br />if there isn't any program or compound added. Please add them first before adding CYP450 Data.
+            </div>
+            <div class="panel-body" *ngIf='Compound != null'>
+              <app-cyp450form [Program]='Program' [Compound]='Compound' (RecordAdded)='AddedResponse($event)'>
+              </app-cyp450form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Delete Pop up HTML-->
+<div class="modal fade" id="deleteRecord" role="dialog">
+  <app-deleterecord [data]='seletedItem' (OnDeleteClickEvent)='OnChange($event)'></app-deleterecord>
+</div>
